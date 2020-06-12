@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="http://code.jquery.com/jquery-1.12.1.js"></script>
   <title>Document</title>
 </head>
 <body>
@@ -114,12 +115,12 @@ const objs = [
    // ss();
     ///////////////////////////////////////////////////////
 
-    let t = new Array();
+    // let t = new Array();
 
-    t = objs.map(n=>n);
-    t.forEach(n=>console.log(n.id))
-    const p = t.filter(n=>n.id==1);
-    p.forEach(n=>console.log(n));
+    // t = objs.map(n=>n);
+    // t.forEach(n=>console.log(n.id))
+    // const p = t.filter(n=>n.id==1);
+    // p.forEach(n=>console.log(n));
     //////////////////////////////////////////////////////
     async function arst(){
       return objs.map(n=>n);
@@ -129,7 +130,35 @@ const objs = [
       await control();  
       console.log(await arst());
     }
-    qwfp()
+    //qwfp()
+    /////////////////////////////////////////////////////
+    class HTTPError extends Error {}
+
+    function ajaxTest2()
+    {
+        const aa = $.ajax(
+        {
+            url: "/test",
+            contentType : "application/json",
+            //data : ,
+            type :"get", //전송방식(get, post, put, delete),
+            async : false,
+            // beforeSend : function(xhr)
+            // {
+            //     xhr.setRequestHeader(header, token);
+            // },
+            dataType : "json", //서버가 보내오는 데이터타입(text,html,xml,json)
+            timeout : 3000,
+            cache : false,
+            
+        }).then(async re=>re,err=>{return err});
+        console.log(aa);
+        return aa;
+    }
+    async function aa(){
+     console.log(await ajaxTest2());
+    }
+    aa();
 </script>
 </body>
 </html>
