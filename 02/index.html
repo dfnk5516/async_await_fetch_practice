@@ -136,9 +136,9 @@ const objs = [
 
     function ajaxTest2()
     {
-        const aa = $.ajax(
+        return $.ajax(
         {
-            url: "/test",
+            url: "/test1",
             contentType : "application/json",
             //data : ,
             type :"get", //전송방식(get, post, put, delete),
@@ -151,9 +151,7 @@ const objs = [
             timeout : 3000,
             cache : false,
             
-        }).then(async re=>re,err=>{return err});
-        console.log(aa);
-        return aa;
+        }).then(re=>re,err=>err);
     }
     async function aa(){
      console.log(await ajaxTest2());
