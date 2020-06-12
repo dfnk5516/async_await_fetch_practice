@@ -102,7 +102,7 @@ const objs = [
 
     async function arar(){
       const b = objs.map(async n=>n);
-      console.log(b);
+      //console.log(b);
       return b[2];
     }
     async function ss(){
@@ -120,6 +120,15 @@ const objs = [
     t.forEach(n=>console.log(n.id))
     const p = t.filter(n=>n.id==1);
     p.forEach(n=>console.log(n));
+    //////////////////////////////////////////////////////
+    async function arst(){
+      return objs.map(n=>n);
+    }
+    async function qwfp(){
+      console.clear();
+      console.log(await arst());
+    }
+    qwfp()
 </script>
 </body>
 </html>
